@@ -1,34 +1,47 @@
 import InsuranceCompany from "../models/InsuranceCompany.js";
+import InsuranceQuote from "../models/InsuranceQuote.js";
 
 export const calculateInsurance = async (req, res) => {
   try {
-    const { carValue, tracker } = req.body;
+    const { name, phoneNumber, brand, value, tracker } = req.body;
 
     // 1. Fetch all companies
     const companies = await InsuranceCompany.find();
 
     // 2. Calculate for each company
     const results = companies.map(company => {
-      const insuranceAmount = (carValue * company.baseRate) / 100;
+      const insuranceAmount = (value * company.baseRate) / 100;
       const trackerAmount = tracker ? 15000 : 0;
       const total = insuranceAmount + trackerAmount;
 
       return {
         companyId: company._id,
-        name: company.name,
-        logo: company.logo,
-        workshops: company.workshops,
+        companyName: company.name,
         insuranceAmount,
         trackerAmount,
         total
       };
     });
 
+    // 3. Save in database
+    const newQuote = await InsuranceQuote.create({
+      name,
+      phoneNumber,
+      brand,
+      carValue: value,
+      trackerSelected: tracker,
+      results
+    });
+
     res.json({
       success: true,
-      carValue,
+      name,
+      phoneNumber,
+      brand,
+      value,
       trackerApplied: tracker,
-      results
+      results,
+      savedQuoteId: newQuote._id
     });
 
   } catch (error) {
