@@ -4,6 +4,7 @@ import cors from "cors";
 import connectDB from "./config/db.js";
 import companyRoutes from "./routes/companyRoutes.js";
 import insuranceRoutes from "./routes/insuranceRoutes.js";
+import healthRoutes from "./routes/healthRoutes.js"
 dotenv.config();
 connectDB();
 
@@ -16,6 +17,7 @@ app.use("/uploads", express.static("uploads"));
 
 app.use("/api/companies", companyRoutes);
 app.use("/api/insurance/", insuranceRoutes);
+app.use("/api/health", healthRoutes);
 
 
 const PORT = process.env.PORT || 5000;
