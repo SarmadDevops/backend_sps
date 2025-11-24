@@ -17,7 +17,8 @@ export const calculateInsurance = async (req, res) => {
       return {
         companyId: company._id,
         companyName: company.name,
-        companyLogo: company.logo,   
+        companyLogo: company.logo, 
+        companyWorkshops: company.workshops,  
         insuranceAmount: Math.round(insuranceAmount),
         trackerAmount: Math.round(trackerAmount),
         total: Math.round(total)

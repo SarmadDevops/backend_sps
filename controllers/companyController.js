@@ -25,9 +25,11 @@ export const upload = multer({ storage });
 // ADD COMPANY WITH IMAGE
 export const addCompany = async (req, res) => {
   try {
-    const { name, baseRate, workshops, trackerAvailable, trackerPrice } = req.body;
-    const logo = req.file ? `/uploads/${req.file.filename}` : "";
-
+    let { name, baseRate, workshops, trackerAvailable, trackerPrice } = req.body;
+const logo = req.file ? `/uploads/${req.file.filename}` : "";
+ if (typeof workshops === "string") {
+      workshops = JSON.parse(workshops);
+    }
     const company = await InsuranceCompany.create({
       name,
       logo,
@@ -37,18 +39,17 @@ export const addCompany = async (req, res) => {
       trackerPrice
     });
 
-    res.status(201).json({
+    res.json({
       success: true,
       message: "Company added successfully",
       company
     });
+
   } catch (error) {
-    res.status(500).json({
-      success: false,
-      message: error.message
-    });
+    res.status(500).json({ success: false, message: error.message });
   }
 };
+
 
 // GET ALL COMPANIES
 export const getCompanies = async (req, res) => {
