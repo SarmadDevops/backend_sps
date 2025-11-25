@@ -13,6 +13,8 @@ const treatmentLimitMap = {
 export const submitHealthForm = async (req, res) => {
   try {
     const {
+      name,
+      phone,
       personType,
       yourAge,
       spouseAge,
@@ -28,6 +30,8 @@ export const submitHealthForm = async (req, res) => {
 
     // Save in MongoDB
     const savedForm = await HealthInsurance.create({
+      name,
+      phone,
       personType,
       yourAge,
       spouseAge,
@@ -37,6 +41,8 @@ export const submitHealthForm = async (req, res) => {
 
     const emailBody = `
       <h2>New Health Insurance Request</h2>
+       <p><strong>Name:</strong> ${name}</p>
+      <p><strong>Phone:</strong> ${phone}</p>
       <p><strong>Person Type:</strong> ${personType}</p>
       <p><strong>Your Age:</strong> ${yourAge}</p>
       <p><strong>Spouse Age:</strong> ${spouseAge || "N/A"}</p>

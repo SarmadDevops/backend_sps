@@ -2,6 +2,8 @@
 import mongoose from "mongoose";
 
 const healthInsuranceSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  phone: { type: String, required: true },
   personType: { type: String, required: true }, 
   yourAge: { type: Number, required: true },
   spouseAge: { type: Number },
