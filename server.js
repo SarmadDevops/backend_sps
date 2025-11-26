@@ -6,6 +6,7 @@ import companyRoutes from "./routes/companyRoutes.js";
 import insuranceRoutes from "./routes/insuranceRoutes.js";
 import healthRoutes from "./routes/healthRoutes.js";
 import travelRoutes from "./routes/travelRoutes.js";
+import quoteRequestRoutes from "./routes/quoteRequestRoutes.js";
 dotenv.config();
 connectDB();
 
@@ -20,7 +21,7 @@ app.use("/api/companies", companyRoutes);
 app.use("/api/insurance/", insuranceRoutes);
 app.use("/api/health", healthRoutes);
 app.use("/api/travel", travelRoutes);
-
+app.use("/api/quote-requests", quoteRequestRoutes);
 
 const PORT = process.env.PORT || 5000;
 
