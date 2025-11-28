@@ -5,15 +5,28 @@ export const sendEmail = async (subject, htmlMessage) => {
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: process.env.ADMIN_EMAIL,     
-      pass: process.env.ADMIN_PASSWORD, 
+      user: process.env.ADMIN_EMAIL,     // sender email
+      pass: process.env.ADMIN_PASSWORD,  // app password
     },
   });
 
+  // If htmlMessage is string → old usage (insurance mails)
+  let html = "";
+  let to = process.env.ADMIN_EMAIL; // default
+  let fromName = "Insurance App";
+
+  if (typeof htmlMessage === "string") {
+    html = htmlMessage;
+  } else if (typeof htmlMessage === "object") {
+    html = htmlMessage.html || "";
+    to = htmlMessage.to || process.env.ADMIN_EMAIL;
+    fromName = htmlMessage.fromName || "Insurance App";
+  }
+
   await transporter.sendMail({
-    from: `"Insurance App" <${process.env.ADMIN_EMAIL}>`,
-    to: process.env.ADMIN_EMAIL, 
+    from: `"${fromName}" <${process.env.ADMIN_EMAIL}>`,
+    to,
     subject,
-    html: htmlMessage,
+    html,
   });
 };
