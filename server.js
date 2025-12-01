@@ -9,7 +9,7 @@ import travelRoutes from "./routes/travelRoutes.js";
 import quoteRequestRoutes from "./routes/quoteRequestRoutes.js";
 
 import contactRoutes from "./routes/contactRoutes.js";
-
+import trackerRoutes from "./routes/trackerRoutes.js";
 import healthtakafulRoutes from "./routes/healthtakafulRoute.js";
 import firetakafulRoutes from "./routes/firetakafulRoutes.js"
 
@@ -33,6 +33,7 @@ app.use("/api", contactRoutes);
 
 app.use("/api/healthtakaful", healthtakafulRoutes);
 app.use("/api/firetakaful", firetakafulRoutes);
+app.use("/api/tracker", trackerRoutes);
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

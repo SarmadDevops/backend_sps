@@ -12,7 +12,7 @@ export const sendEmail = async (subject, htmlMessage) => {
 
   await transporter.sendMail({
     from: `"Insurance App" <${process.env.ADMIN_EMAIL}>`,
-    to: process.env.ADMIN_EMAIL, 
+    to: process.env.SPS_EMAIL, 
     subject,
     html: htmlMessage,
   });
