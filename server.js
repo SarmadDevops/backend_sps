@@ -22,7 +22,7 @@ app.use(cors());
 app.use(express.json());
 app.use("/uploads", express.static("uploads"));
 
-
+app.use("/company-logos", express.static("public/company-logos"));
 app.use("/api/companies", companyRoutes);
 app.use("/api/insurance/", insuranceRoutes);
 app.use("/api/health", healthRoutes);

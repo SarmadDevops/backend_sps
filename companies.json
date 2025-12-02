@@ -1,0 +1,66 @@
+[
+  {
+    "name": "Pak Qatar Takaful",
+    "logo": "/company-logos/pak-qatar.png",
+    "baseRate": 1.5,
+    "workshops": ["Karachi", "Lahore", "Islamabad"],
+    "trackerAvailable": true,
+    "trackerPrice": 15000
+  },
+  {
+    "name": "Adamjee Insurance",
+    "logo": "/company-logos/adamjee.png",
+    "baseRate": 1.5,
+    "workshops": ["Karachi", "Lahore"],
+    "trackerAvailable": true,
+    "trackerPrice": 15000
+  },
+  {
+    "name": "Jubilee General Insurance",
+    "logo": "/company-logos/jubilee.png",
+    "baseRate": 1.5,
+    "workshops": ["Karachi", "Lahore", "Islamabad"],
+    "trackerAvailable": true,
+    "trackerPrice": 15000
+  },
+  {
+    "name": "EFU General Insurance",
+    "logo": "/company-logos/efu.png",
+    "baseRate": 1.5,
+    "workshops": ["Karachi", "Quetta", "Islamabad"],
+    "trackerAvailable": true,
+    "trackerPrice": 15000
+  },
+  {
+    "name": "IGI Insurance",
+    "logo": "/company-logos/igi.png",
+    "baseRate": 1.5,
+    "workshops": ["Karachi"],
+    "trackerAvailable": true,
+    "trackerPrice": 15000
+  },
+  {
+    "name": "SGI (Shaheen General Insurance)",
+    "logo": "/company-logos/sgi.png",
+    "baseRate": 1.5,
+    "workshops": ["Lahore", "Islamabad"],
+    "trackerAvailable": false,
+    "trackerPrice": 15000
+  },
+  {
+    "name": "Atlas Insurance",
+    "logo": "/company-logos/atlas.png",
+    "baseRate": 1.5,
+    "workshops": ["Karachi", "Hyderabad"],
+    "trackerAvailable": true,
+    "trackerPrice": 15000
+  },
+  {
+    "name": "East West Insurance",
+    "logo": "/company-logos/east-west.png",
+    "baseRate": 1.5,
+    "workshops": ["Karachi"],
+    "trackerAvailable": false,
+    "trackerPrice": 15000
+  }
+]
