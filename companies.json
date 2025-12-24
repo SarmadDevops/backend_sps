@@ -17,7 +17,7 @@
   },
   {
     "name": "Jubilee General Insurance",
-    "logo": "/company-logos/jubileemew.png",
+    "logo": "/company-logos/jubileenew.png",
     "baseRate": 1.5,
     "workshops": ["Karachi", "Lahore", "Islamabad"],
     "trackerAvailable": true,
